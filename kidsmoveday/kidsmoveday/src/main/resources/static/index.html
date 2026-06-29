@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EinfachGesund – Kids Move Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--gd:#2d6a4f;--gm:#40916c;--gl:#74c69d;--gp:#d8f3dc;--gx:#f0faf3;--ac:#f4a261;--ac2:#e76f51;--td:#1b2d23;--tm:#3d5a45;--tl:#6b8f71;--wh:#ffffff;--rd:#e74c3c;--rp:#fdf0f0}
+        body{font-family:'Poppins',sans-serif;color:var(--td);background:var(--wh);overflow-x:hidden}
+        nav{background:var(--wh);border-bottom:2px solid var(--gp);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;box-shadow:0 2px 12px rgba(45,106,79,.08);position:sticky;top:0;z-index:100}
+        .nav-logo{display:flex;align-items:center;gap:10px}
+        .logo-icon{width:38px;height:38px;background:var(--gd);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px}
+        .nav-logo span{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.1rem;color:var(--gd)}
+        .nav-logo small{display:block;font-size:0.6rem;color:var(--tl);margin-top:-3px}
+        .nav-right{display:flex;gap:2px;align-items:center}
+        .nav-right a{text-decoration:none;color:var(--tm);font-size:0.84rem;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;transition:all .2s}
+        .nav-right a:hover,.nav-right a.active{background:var(--gp);color:var(--gd)}
+        .btn-login{background:var(--gd)!important;color:var(--wh)!important;padding:7px 16px!important;border-radius:8px;font-weight:700!important;margin-left:4px}
+        .lang-sw{display:flex;background:var(--gp);border-radius:8px;overflow:hidden;margin-left:8px}
+        .lbtn{border:none;background:none;padding:7px 11px;font-size:0.8rem;font-weight:700;cursor:pointer;color:var(--tl);font-family:inherit;transition:all .2s}
+        .lbtn.on{background:var(--gd);color:var(--wh);border-radius:6px}
+        .hero{background:linear-gradient(135deg,var(--gd) 0%,var(--gm) 60%,#52b788 100%);padding:4rem 1.5rem 3.5rem;display:flex;align-items:center;justify-content:center;min-height:460px;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-60px;right:-80px;width:380px;height:380px;background:rgba(255,255,255,.05);border-radius:50%}
+        .hero-inner{max-width:880px;width:100%;display:flex;align-items:center;gap:2.5rem;position:relative;z-index:1;flex-wrap:wrap}
+        .hero-text{flex:1;min-width:260px}
+        .hero-badge{display:inline-flex;align-items:center;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:var(--wh);font-size:0.75rem;font-weight:700;padding:5px 13px;border-radius:999px;margin-bottom:1rem}
+        .hero h1{font-family:'Nunito',sans-serif;font-size:2.3rem;font-weight:900;color:var(--wh);line-height:1.15;margin-bottom:.5rem}
+        .accent{color:var(--ac)}
+        .hero-sub{font-size:.95rem;color:rgba(255,255,255,.85);margin-bottom:.5rem;font-weight:600}
+        .hero-sub2{font-size:0.83rem;color:rgba(255,255,255,.65);margin-bottom:1.5rem;line-height:1.6}
+        .hero-btns{display:flex;gap:.8rem;flex-wrap:wrap}
+        .btn-p{background:var(--ac);color:var(--wh);padding:11px 22px;border-radius:10px;font-weight:700;font-size:0.88rem;border:none;cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+        .btn-p:hover{background:var(--ac2);transform:translateY(-2px)}
+        .btn-ow{background:transparent;color:var(--wh);padding:11px 22px;border-radius:10px;font-weight:600;font-size:0.88rem;border:2px solid rgba(255,255,255,.4);cursor:pointer;transition:all .2s;font-family:'Poppins',sans-serif}
+        .hero-card{flex:0 0 240px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:1.3rem 1.1rem}
+        .ir{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+        .ir:last-child{margin-bottom:0}
+        .iico{font-size:1.2rem;width:26px;text-align:center}
+        .it strong{display:block;color:var(--wh);font-size:0.84rem;font-weight:700}
+        .it span{color:rgba(255,255,255,.6);font-size:0.72rem}
+        .hdiv{height:1px;background:rgba(255,255,255,.15);margin:3px 0}
+        .stats-bar{background:var(--gd);padding:.9rem 1.5rem;display:flex;justify-content:center;flex-wrap:wrap}
+        .si-stat{text-align:center;padding:0 1.8rem;border-right:1px solid rgba(255,255,255,.15)}
+        .si-stat:last-child{border-right:none}
+        .si-stat strong{display:block;font-size:1.4rem;font-weight:900;color:var(--ac);font-family:'Nunito',sans-serif}
+        .si-stat span{font-size:0.7rem;color:rgba(255,255,255,.7);font-weight:500}
+        section{padding:3rem 1.5rem}
+        .si{max-width:960px;margin:0 auto}
+        .stag{display:inline-block;background:var(--gp);color:var(--gd);font-size:0.68rem;font-weight:700;letter-spacing:1px;padding:4px 12px;border-radius:999px;margin-bottom:.7rem;text-transform:uppercase}
+        .stitle{font-family:'Nunito',sans-serif;font-size:1.8rem;font-weight:900;color:var(--td);margin-bottom:.5rem}
+        .sdesc{color:var(--tl);font-size:0.9rem;line-height:1.7;max-width:580px}
+        .tabs-section{background:var(--gx)}
+        .tabs-nav{display:flex;gap:.3rem;margin:1.4rem 0 1.6rem;border-bottom:2px solid var(--gp);flex-wrap:wrap}
+        .tab-btn{padding:8px 14px;border:none;background:none;font-size:0.8rem;font-weight:600;color:var(--tl);cursor:pointer;border-radius:8px 8px 0 0;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;font-family:'Poppins',sans-serif}
+        .tab-btn:hover{color:var(--gd);background:var(--gp)}
+        .tab-btn.active{color:var(--gd);border-bottom-color:var(--gd);background:var(--wh)}
+        .tab-panel{display:none}
+        .tab-panel.active{display:block}
+        .agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-top:1.2rem}
+        .acard{background:var(--wh);border:1.5px solid var(--gp);border-radius:14px;padding:1.1rem .9rem;transition:all .2s}
+        .acard:hover{border-color:var(--gl);transform:translateY(-2px)}
+        .aico{font-size:1.8rem;margin-bottom:.6rem}
+        .acard h4{font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:800;color:var(--td);margin-bottom:.3rem}
+        .acard p{font-size:0.75rem;color:var(--tl);line-height:1.5}
+        .pbox{background:var(--gx);border:2px solid var(--gp);border-radius:14px;padding:1.5rem;display:flex;align-items:flex-start;gap:1.2rem;margin-top:.8rem}
+        .pico{font-size:2rem;flex-shrink:0}
+        .pbox h3{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--gd);margin-bottom:.4rem}
+        .pbox p{font-size:0.8rem;color:var(--tm);line-height:1.6}
+        .tl{margin-top:1.3rem;display:flex;flex-direction:column;gap:.6rem}
+        .tli{display:flex;align-items:flex-start;gap:.9rem;background:var(--wh);border:1.5px solid var(--gp);border-radius:11px;padding:.8rem 1rem}
+        .tlt{background:var(--gd);color:var(--wh);font-size:0.7rem;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+        .tlc h4{font-family:'Nunito',sans-serif;font-size:0.86rem;font-weight:800;color:var(--td)}
+        .tlc p{font-size:0.73rem;color:var(--tl);margin-top:2px}
+        .cta-section{background:linear-gradient(135deg,var(--gd),var(--gm));text-align:center;padding:3.5rem 1.5rem}
+        .cta-section h2{font-family:'Nunito',sans-serif;font-size:1.8rem;font-weight:900;color:var(--wh);margin-bottom:.6rem}
+        .cta-section p{color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:1.5rem;max-width:480px;margin-left:auto;margin-right:auto}
+        .cta-btns{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+        .btn-wh{background:var(--wh);color:var(--gd);padding:11px 22px;border-radius:10px;font-weight:700;font-size:.88rem;border:none;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
+        /* MODAL */
+        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center}
+        .modal-overlay.open{display:flex}
+        .modal{background:var(--wh);border-radius:18px;padding:2rem;width:420px;max-width:93%;box-shadow:0 20px 60px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto}
+        .modal h3{font-family:'Nunito',sans-serif;font-size:1.2rem;font-weight:900;color:var(--gd);margin-bottom:.8rem}
+        .modal-tabs{display:flex;gap:4px;background:var(--gp);border-radius:9px;padding:4px;margin-bottom:1.1rem}
+        .mtab{flex:1;border:none;padding:8px;border-radius:7px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s}
+        .mtab.on{background:var(--gd);color:#fff}
+        .mtab.off{background:transparent;color:var(--gd)}
+        /* ROLE SELECTOR */
+        .role-sel{display:flex;gap:8px;margin-bottom:1rem}
+        .role-btn{flex:1;border:2px solid var(--gp);background:var(--wh);padding:10px;border-radius:10px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;color:var(--tm);text-align:center}
+        .role-btn.active{border-color:var(--gd);background:var(--gx);color:var(--gd)}
+        .role-btn.admin-btn.active{border-color:#e74c3c;background:#fdf0f0;color:#e74c3c}
+        .fg{margin-bottom:.75rem}
+        .fg label{display:block;font-size:.75rem;font-weight:600;color:var(--tm);margin-bottom:3px}
+        .fg input{width:100%;padding:9px 12px;border:1.5px solid var(--gp);border-radius:9px;font-size:.82rem;outline:none;font-family:'Poppins',sans-serif;transition:border .2s}
+        .fg input:focus{border-color:var(--gm)}
+        .fg select{width:100%;padding:9px 12px;border:1.5px solid var(--gp);border-radius:9px;font-size:.82rem;outline:none;font-family:'Poppins',sans-serif;background:var(--wh)}
+        .age-hint{font-size:.72rem;color:var(--gd);font-weight:600;margin-top:4px;display:none}
+        .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+        .mfoot{display:flex;gap:.6rem;margin-top:1rem}
+        .btn-ms{flex:1;background:var(--gd);color:var(--wh);border:none;padding:10px;border-radius:9px;font-weight:700;font-size:.84rem;cursor:pointer;font-family:'Poppins',sans-serif}
+        .btn-mc{background:var(--gp);color:var(--gd);border:none;padding:10px 13px;border-radius:9px;font-weight:600;font-size:.84rem;cursor:pointer;font-family:'Poppins',sans-serif}
+        .al{padding:9px 13px;border-radius:9px;font-size:.8rem;margin-top:9px;display:none}
+        .al.ok{background:#d8f3dc;color:#2d6a4f;display:block}
+        .al.er{background:#ffe0e0;color:#c0392b;display:block}
+        /* DASHBOARD */
+        .dashboard{background:var(--gx);padding:3rem 1.5rem}
+        .dash-header{background:linear-gradient(135deg,var(--gd),var(--gm));border-radius:18px;padding:2rem;color:var(--wh);margin-bottom:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+        .dash-header.admin-header{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+        .dash-header h2{font-family:'Nunito',sans-serif;font-size:1.6rem;font-weight:900}
+        .dash-header p{font-size:.85rem;opacity:.8;margin-top:.3rem}
+        .dash-badge{background:rgba(255,255,255,.2);padding:6px 14px;border-radius:999px;font-size:.75rem;font-weight:700}
+        .admin-badge{background:rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:.72rem;font-weight:800;color:#fff;margin-left:8px}
+        .dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-bottom:1.5rem}
+        .dash-card{background:var(--wh);border:1.5px solid var(--gp);border-radius:16px;padding:1.4rem}
+        .dash-card.admin-card{border-color:#f5b7b1}
+        .dash-card h3{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--gd);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+        .dash-card.admin-card h3{color:#c0392b}
+        .cover-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gp);font-size:.82rem}
+        .cover-row:last-child{border-bottom:none}
+        .cover-row span:first-child{color:var(--tm)}
+        .badge-ok{background:#d8f3dc;color:#2d6a4f;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;white-space:nowrap}
+        .badge-no{background:#ffe0e0;color:#c0392b;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;white-space:nowrap}
+        .badge-admin{background:#fadbd8;color:#c0392b;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700}
+        .badge-user{background:#d8f3dc;color:#2d6a4f;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700}
+        .tip-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--gp);font-size:.82rem;color:var(--tm)}
+        .tip-item:last-child{border-bottom:none}
+        .tip-icon{font-size:1.2rem;flex-shrink:0}
+        .logout-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:var(--wh);padding:8px 16px;border-radius:9px;font-weight:600;font-size:.82rem;cursor:pointer;font-family:'Poppins',sans-serif}
+        /* USERS TABLE */
+        .users-table{width:100%;border-collapse:collapse;margin-top:.8rem;font-size:.8rem}
+        .users-table th{background:var(--gd);color:#fff;padding:10px 12px;text-align:left;font-weight:700}
+        .users-table td{padding:9px 12px;border-bottom:1px solid var(--gp);color:var(--tm)}
+        .users-table tr:hover td{background:var(--gx)}
+        /* ADMIN FORMS */
+        .admin-form{background:var(--wh);border:1.5px solid #f5b7b1;border-radius:16px;padding:1.4rem;margin-bottom:1.2rem}
+        .admin-form h3{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:#c0392b;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+        .btn-admin{background:#e74c3c;color:var(--wh);border:none;padding:10px 20px;border-radius:9px;font-weight:700;font-size:.84rem;cursor:pointer;font-family:'Poppins',sans-serif;margin-top:.5rem}
+        .btn-admin:hover{background:#c0392b}
+        .event-list{display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem}
+        .event-item{background:var(--gx);border:1.5px solid var(--gp);border-radius:10px;padding:.8rem 1rem;display:flex;justify-content:space-between;align-items:center}
+        .event-item span{font-size:.82rem;color:var(--tm);font-weight:600}
+        .benefit-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--gp);font-size:.82rem}
+        .benefit-item:last-child{border-bottom:none}
+        .bonus-box{margin-top:1.1rem;background:var(--gp);border-radius:12px;padding:1rem 1.2rem}
+        .cklist{display:flex;flex-direction:column;gap:7px}
+        .cklist div{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--tm)}
+        .page{display:none}
+        .page.active{display:block}
+        footer{background:var(--td);color:rgba(255,255,255,.5);text-align:center;padding:1.2rem;font-size:.75rem}
+        footer strong{color:rgba(255,255,255,.8)}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">
+        <div class="logo-icon">🌿</div>
+        <div><span>EinfachGesund</span><small>Krankenkasse</small></div>
+    </div>
+    <div class="nav-right">
+        <a class="active" onclick="showPage('home',this)" id="nl-home">Home</a>
+        <a onclick="showPage('event',this)" id="nl-event">🏅 Kids Move Day</a>
+        <a onclick="showPage('ueber',this)" id="nl-ueber">Über uns</a>
+        <a class="btn-login" onclick="openLogin()" id="nl-login">Mein Konto</a>
+        <div class="lang-sw">
+            <button class="lbtn on" onclick="setLang('de',this)">DE</button>
+            <button class="lbtn" onclick="setLang('en',this)">EN</button>
+        </div>
+    </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge" id="h-badge">🏅 EinfachGesund präsentiert</div>
+                <h1 id="h-title">Kids Move Day –<br><span class="accent">Olympische Spiele</span> der Familiengesundheit</h1>
+                <p class="hero-sub" id="h-sub">Bewegung, Spaß und Gesundheit für die ganze Familie</p>
+                <p class="hero-sub2" id="h-sub2">Eine kostenlose Outdoor-Veranstaltung für Kinder und Familien – organisiert von EinfachGesund Krankenkasse in Zusammenarbeit mit der Stadtverwaltung.</p>
+                <div class="hero-btns">
+                    <button class="btn-p" onclick="showPage('event',null)" id="h-btn1">🎯 Zum Event</button>
+                    <button class="btn-ow" onclick="openLogin()" id="h-btn2">Jetzt anmelden →</button>
+                </div>
+            </div>
+            <div class="hero-card">
+                <div class="ir"><div class="iico">📅</div><div class="it"><strong>15. Juni 2025</strong><span>09:00 – 17:00 Uhr</span></div></div>
+                <div class="hdiv"></div>
+                <div class="ir"><div class="iico">📍</div><div class="it"><strong>Stadtpark Mitte</strong><span id="c-free">Eintritt frei · Für alle</span></div></div>
+                <div class="hdiv"></div>
+                <div class="ir"><div class="iico">👨‍👩‍👧</div><div class="it"><strong id="c-fam">Für Familien</strong><span id="c-age">Kinder &amp; Erwachsene</span></div></div>
+                <div class="hdiv"></div>
+                <div class="ir"><div class="iico">🤝</div><div class="it"><strong id="c-city">Mit der Stadt</strong><span id="c-org">Gemeinsam veranstaltet</span></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="stats-bar">
+        <div class="si-stat"><strong>5</strong><span id="st1">Aktivitäten</span></div>
+        <div class="si-stat"><strong>500+</strong><span id="st2">Erwartete Familien</span></div>
+        <div class="si-stat"><strong id="st3v">Kostenlos</strong><span id="st3">Eintritt für alle</span></div>
+        <div class="si-stat"><strong>🏅</strong><span id="st4">Medaillen &amp; Preise</span></div>
+    </div>
+    <section style="background:var(--wh)">
+        <div class="si">
+            <span class="stag" id="s1tag">Über das Event</span>
+            <h2 class="stitle" id="s1title">Was ist Kids Move Day?</h2>
+            <p class="sdesc" id="s1desc">Ein ganzer Tag voller Sport, Bewegung und Freude für die ganze Familie.</p>
+            <div class="agrid">
+                <div class="acard"><div class="aico">🏅</div><h4 id="a1t">Hindernisparcours</h4><p id="a1d">Klettern, Balancieren und Laufspiele.</p></div>
+                <div class="acard"><div class="aico">🧠</div><h4 id="a2t">Gesundheitsstation</h4><p id="a2d">Kindgerechte Präventionsaktivitäten.</p></div>
+                <div class="acard"><div class="aico">🥗</div><h4 id="a3t">Mini-Workshop</h4><p id="a3d">Energie &amp; Ernährung – interaktiver Workshop.</p></div>
+                <div class="acard"><div class="aico">📱</div><h4 id="a4t">Digitaler Check</h4><p id="a4d">Interaktive Gesundheitsmissionen.</p></div>
+            </div>
+        </div>
+    </section>
+    <div class="cta-section">
+        <h2 id="cta-h">Jetzt Mitglied werden! 💚</h2>
+        <p id="cta-p">Werden Sie Mitglied bei EinfachGesund und genießen Sie exklusive Vorteile.</p>
+        <div class="cta-btns">
+            <button class="btn-wh" onclick="openLogin()" id="cta-b1">🔐 Anmelden / Konto</button>
+            <button class="btn-ow" onclick="showPage('ueber',null)" id="cta-b2">Mehr erfahren</button>
+        </div>
+    </div>
+</div>
+
+<!-- EVENT PAGE -->
+<div class="page" id="page-event">
+    <section class="tabs-section">
+        <div class="si">
+            <span class="stag" id="ev-tag">Kids Move Day 2025</span>
+            <h2 class="stitle" id="ev-title">🏅 Olympische Spiele der Familiengesundheit</h2>
+            <p class="sdesc" id="ev-desc">Entdecken Sie alle Details.</p>
+            <div class="tabs-nav">
+                <button class="tab-btn active" onclick="switchTab('akt',this)" id="tb-akt">🎯 Aktivitäten</button>
+                <button class="tab-btn" onclick="switchTab('ora',this)" id="tb-ora">⏰ Zeitplan</button>
+                <button class="tab-btn" onclick="switchTab('par',this)" id="tb-par">🤝 Partner</button>
+                <button class="tab-btn" onclick="switchTab('cmi',this)" id="tb-cmi">🏆 Preise</button>
+                <button class="tab-btn" onclick="switchTab('reg',this)" id="tb-reg">📋 Anmeldung</button>
+            </div>
+            <div class="tab-panel active" id="tab-akt">
+                <div class="agrid">
+                    <div class="acard"><div class="aico">🏅</div><h4 id="ea1t">Hindernisparcours</h4><p id="ea1d">Klettern, Balancieren und Laufen.</p></div>
+                    <div class="acard"><div class="aico">🧠</div><h4 id="ea2t">Gesundheitsstation</h4><p id="ea2d">Präventionsaktivitäten und kostenlose Checks.</p></div>
+                    <div class="acard"><div class="aico">🥗</div><h4 id="ea3t">Ernährungs-Workshop</h4><p id="ea3d">Eltern und Kinder lernen gemeinsam.</p></div>
+                    <div class="acard"><div class="aico">📱</div><h4 id="ea4t">Digitaler Check</h4><p id="ea4d">Scannen, bewegen, Punkte sammeln.</p></div>
+                    <div class="acard"><div class="aico">🎁</div><h4 id="ea5t">Großes Finale</h4><p id="ea5d">Goldmedaillen und Überraschungen.</p></div>
+                </div>
+            </div>
+            <div class="tab-panel" id="tab-ora">
+                <div class="tl">
+                    <div class="tli"><span class="tlt">09:00</span><div class="tlc"><h4 id="tl1h">🎉 Offizielle Eröffnung</h4><p id="tl1p">Begrüßungsworte von EinfachGesund</p></div></div>
+                    <div class="tli"><span class="tlt">09:30</span><div class="tlc"><h4 id="tl2h">🏅 Hindernisparcours – Runde 1</h4><p id="tl2p">Kinder 5–8 Jahre</p></div></div>
+                    <div class="tli"><span class="tlt">10:30</span><div class="tlc"><h4 id="tl3h">🧠 Gesundheitsstation öffnet</h4><p id="tl3p">Kostenlose Checks</p></div></div>
+                    <div class="tli"><span class="tlt">11:00</span><div class="tlc"><h4 id="tl4h">🥗 Ernährungs-Workshop</h4><p id="tl4p">Erste Sitzung – 30 Familien</p></div></div>
+                    <div class="tli"><span class="tlt">12:00</span><div class="tlc"><h4 id="tl5h">☀️ Mittagspause</h4><p id="tl5p">Essen, Musik und Entspannung</p></div></div>
+                    <div class="tli"><span class="tlt">13:00</span><div class="tlc"><h4 id="tl6h">🏅 Hindernisparcours – Runde 2</h4><p id="tl6p">Kinder 9–14 Jahre</p></div></div>
+                    <div class="tli"><span class="tlt">16:00</span><div class="tlc"><h4 id="tl7h">🏆 Großes Finale &amp; Preise</h4><p id="tl7p">Medaillen-Zeremonie</p></div></div>
+                </div>
+            </div>
+            <div class="tab-panel" id="tab-par">
+                <div class="pbox"><div class="pico">🏛️</div><div><h3 id="p1t">Stadtverwaltung – Hauptpartner</h3><p id="p1d">Die Stadt stellt den Raum bereit.</p></div></div>
+                <div class="pbox"><div class="pico">💚</div><div><h3 id="p2t">EinfachGesund – Veranstalter</h3><p id="p2d">EinfachGesund organisiert und finanziert das Event.</p></div></div>
+                <div class="pbox"><div class="pico">🏥</div><div><h3 id="p3t">Gesundheitspartner</h3><p id="p3d">Ärzte und Experten ehrenamtlich.</p></div></div>
+            </div>
+            <div class="tab-panel" id="tab-cmi">
+                <div class="agrid">
+                    <div class="acard" style="border-color:#ffd700;background:#fffdf0"><div class="aico">🥇</div><h4 id="c1t">Goldmedaille</h4><p id="c1d">Höchste Gesamtleistung.</p></div>
+                    <div class="acard" style="border-color:#c0c0c0;background:#fafafa"><div class="aico">🥈</div><h4 id="c2t">Silbermedaille</h4><p id="c2d">Top 3 Familien.</p></div>
+                    <div class="acard" style="border-color:#cd7f32;background:#fff8f0"><div class="aico">🥉</div><h4 id="c3t">Bronzemedaille</h4><p id="c3d">Top 10 Familien.</p></div>
+                    <div class="acard"><div class="aico">🎁</div><h4 id="c4t">Teilnahmepreis</h4><p id="c4d">Jede Familie!</p></div>
+                </div>
+                <div class="bonus-box">
+                    <p style="font-size:.83rem;color:var(--gd);font-weight:700" id="bn-t">💡 Bonus für Versicherungsnehmer:</p>
+                    <p style="font-size:.77rem;color:var(--tm);margin-top:5px;line-height:1.6" id="bn-d">Doppelte Bonuspunkte und exklusiver Zugang!</p>
+                </div>
+            </div>
+            <div class="tab-panel" id="tab-reg">
+                <div style="max-width:500px">
+                    <p style="color:var(--tm);font-size:.85rem;margin-bottom:1rem;line-height:1.6" id="rg-desc">Das Event ist kostenlos. Melden Sie sich im Voraus an.</p>
+                    <div class="fg"><label for="reg-name" id="rg-l1">Name des Elternteils</label><input type="text" id="reg-name" placeholder="z.B. Anna Müller"></div>
+                    <div class="fg"><label for="reg-email" id="rg-l2">E-Mail-Adresse</label><input type="email" id="reg-email" placeholder="email@beispiel.de"></div>
+                    <div class="fg"><label for="reg-kinder" id="rg-l3">Anzahl der Kinder</label><input type="number" id="reg-kinder" placeholder="2" min="1" max="10"></div>
+                    <div class="fg"><label for="reg-vnr" id="rg-l4">Versicherungsnummer (optional)</label><input type="text" id="reg-vnr" placeholder="EG-XXXXXXXX"></div>
+                    <button class="btn-p" style="width:100%;margin-top:.3rem;padding:12px" id="rg-btn" onclick="submitRegistration()">✅ Für Kids Move Day anmelden</button>
+                    <div id="event-reg-alert" class="al"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- UEBER UNS -->
+<div class="page" id="page-ueber">
+    <section style="background:var(--wh)">
+        <div class="si">
+            <span class="stag" id="u-tag">Über uns</span>
+            <h2 class="stitle" id="u-title">EinfachGesund Krankenkasse</h2>
+            <p class="sdesc" id="u-desc">Wir sind ein moderner Krankenversicherer für junge Familien.</p>
+            <div class="agrid" style="margin-top:2rem">
+                <div class="acard"><div class="aico">💚</div><h4 id="u1t">Unsere Mission</h4><p id="u1d">Gesundheitsprävention zugänglich machen.</p></div>
+                <div class="acard"><div class="aico">👨‍👩‍👧‍👦</div><h4 id="u2t">Familienfokus</h4><p id="u2d">Angebote für junge Familien.</p></div>
+                <div class="acard"><div class="aico">🌿</div><h4 id="u3t">Digitale Innovation</h4><p id="u3d">App und Portal.</p></div>
+                <div class="acard"><div class="aico">🏙️</div><h4 id="u4t">Gemeinschaftsengagement</h4><p id="u4d">Zusammenarbeit mit Städten.</p></div>
+            </div>
+            <div style="margin-top:2rem;background:var(--gx);border-radius:18px;padding:2rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap">
+                <div style="flex:1;min-width:200px">
+                    <h3 style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;color:var(--gd);margin-bottom:.6rem" id="u-ch">EinfachGesund-Mitglied werden</h3>
+                    <p style="font-size:.82rem;color:var(--tm);line-height:1.6;margin-bottom:1rem" id="u-cp">Schließen Sie sich Tausenden an.</p>
+                    <button class="btn-p" onclick="openLogin()" id="u-cb">🔐 Jetzt Mitglied werden</button>
+                </div>
+                <div class="cklist">
+                    <div>✅ <span id="ck1">Vollständiger Familienschutz</span></div>
+                    <div>✅ <span id="ck2">Prioritätszugang zu Events</span></div>
+                    <div>✅ <span id="ck3">Doppelte Bonuspunkte</span></div>
+                    <div>✅ <span id="ck4">Kostenlose App</span></div>
+                    <div>✅ <span id="ck5">24/7-Service</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- USER DASHBOARD -->
+<div class="page" id="page-dashboard">
+    <div class="dashboard">
+        <div class="si">
+            <div class="dash-header">
+                <div>
+                    <h2 id="dash-welcome">Willkommen zurück!</h2>
+                    <p id="dash-sub">Ihr persönliches EinfachGesund-Konto</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                    <span class="dash-badge" id="dash-vnr">EG-XXXXXXXX</span>
+                    <button class="logout-btn" onclick="logout()" id="dash-logout">Abmelden</button>
+                </div>
+            </div>
+            <div class="dash-grid">
+                <div class="dash-card">
+                    <h3>👤 <span id="dc1-title">Meine Daten</span></h3>
+                    <div class="cover-row"><span id="dc1-name-l">Name</span><span id="dash-name" style="font-weight:700;color:var(--gd)">–</span></div>
+                    <div class="cover-row"><span id="dc1-email-l">E-Mail</span><span id="dash-email" style="font-size:.78rem;color:var(--tm)">–</span></div>
+                    <div class="cover-row"><span id="dc1-city-l">Wohnort</span><span id="dash-city" style="font-size:.78rem;color:var(--tm)">–</span></div>
+                    <div class="cover-row"><span id="dc1-bday-l">Geburtsdatum</span><span id="dash-bday" style="font-size:.78rem;color:var(--tm)">–</span></div>
+                    <div class="cover-row"><span id="dc1-age-l">Alter</span><span id="dash-age" style="font-size:.78rem;font-weight:700;color:var(--gd)">–</span></div>
+                    <div class="cover-row"><span id="dc1-vnr-l">Versicherungsnummer</span><span id="dash-vnr2" style="font-size:.78rem;color:var(--tm)">–</span></div>
+                    <div class="cover-row"><span id="dc1-status-l">Status</span><span class="badge-ok" id="dash-status">Versichert ✅</span></div>
+                    <div class="cover-row"><span id="dc1-event-l">Kids Move Day</span><span class="badge-ok">Zugang gesichert 🏅</span></div>
+                </div>
+                <div class="dash-card">
+                    <h3>✅ <span id="dc2-title">Was zahlt EinfachGesund?</span></h3>
+                    <div id="benefits-list">
+                        <div class="cover-row"><span>Arztbesuche (Hausarzt &amp; Facharzt)</span><span class="badge-ok">100%</span></div>
+                        <div class="cover-row"><span>Krankenhausaufenthalt</span><span class="badge-ok">100%</span></div>
+                        <div class="cover-row"><span>Medikamente (verschreibungspflichtig)</span><span class="badge-ok">80%</span></div>
+                        <div class="cover-row"><span>Kindervorsorge &amp; Impfungen</span><span class="badge-ok">100%</span></div>
+                        <div class="cover-row"><span>Zahnbehandlung (Grundversorgung)</span><span class="badge-ok">70%</span></div>
+                        <div class="cover-row"><span>Physiotherapie (mit Rezept)</span><span class="badge-ok">80%</span></div>
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <h3>❌ <span id="dc3-title">Was zahlt EinfachGesund nicht?</span></h3>
+                    <div class="cover-row"><span id="dc3-1">Kosmetische Behandlungen</span><span class="badge-no" id="dc3-1b">Nicht gedeckt</span></div>
+                    <div class="cover-row"><span id="dc3-2">Alternativmedizin (ohne Rezept)</span><span class="badge-no" id="dc3-2b">Nicht gedeckt</span></div>
+                    <div class="cover-row"><span id="dc3-3">Zahnersatz (Implantate)</span><span class="badge-no" id="dc3-3b">Nicht gedeckt</span></div>
+                    <div class="cover-row"><span id="dc3-4">Brillen (Erwachsene)</span><span class="badge-no" id="dc3-4b">Nicht gedeckt</span></div>
+                    <div class="cover-row"><span id="dc3-5">Reiseimpfungen (ohne Indikation)</span><span class="badge-no" id="dc3-5b">Nicht gedeckt</span></div>
+                    <div class="cover-row"><span id="dc3-6">Privatarzt-Mehrkosten</span><span class="badge-no" id="dc3-6b">Nicht gedeckt</span></div>
+                </div>
+                <div class="dash-card">
+                    <h3>🎁 <span id="dc4-title">Ihre exklusiven Vorteile</span></h3>
+                    <div class="cover-row"><span id="dc4-1">Doppelte Bonuspunkte bei Events</span><span class="badge-ok">Aktiv</span></div>
+                    <div class="cover-row"><span id="dc4-2">Prioritätszugang Kids Move Day</span><span class="badge-ok">Gesichert</span></div>
+                    <div class="cover-row"><span id="dc4-3">Gratis Gesundheits-App</span><span class="badge-ok">Verfügbar</span></div>
+                    <div class="cover-row"><span id="dc4-4">Jährlicher Gesundheits-Check</span><span class="badge-ok">Inklusive</span></div>
+                    <div class="cover-row"><span id="dc4-5">Familien-Bonusprogramm</span><span class="badge-ok">Aktiv</span></div>
+                    <div class="cover-row"><span id="dc4-6">24/7 Telemedizin-Service</span><span class="badge-ok">Verfügbar</span></div>
+                </div>
+            </div>
+            <div class="dash-card" style="margin-bottom:1.5rem">
+                <h3>🥗 <span id="dc5-title">Gesunde Ernährungstipps für Ihre Familie</span></h3>
+                <div class="tip-item"><div class="tip-icon">🥦</div><div id="tip1">Täglich 5 Portionen Obst und Gemüse – bunt und saisonal.</div></div>
+                <div class="tip-item"><div class="tip-icon">💧</div><div id="tip2">Mindestens 1,5–2 Liter Wasser täglich.</div></div>
+                <div class="tip-item"><div class="tip-icon">🌾</div><div id="tip3">Vollkornprodukte statt Weißmehl – mehr Ballaststoffe.</div></div>
+                <div class="tip-item"><div class="tip-icon">🐟</div><div id="tip4">2x pro Woche Fisch (Omega-3) – gut für Herz und Gehirn.</div></div>
+                <div class="tip-item"><div class="tip-icon">🍬</div><div id="tip5">Zucker reduzieren – wichtig für Zahngesundheit der Kinder.</div></div>
+                <div class="tip-item"><div class="tip-icon">🏃</div><div id="tip6">30 Min. Bewegung täglich – wie beim Kids Move Day!</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="page" id="page-admin">
+    <div class="dashboard">
+        <div class="si">
+            <div class="dash-header admin-header">
+                <div>
+                    <h2>🔴 Admin Dashboard <span class="admin-badge">ADMIN</span></h2>
+                    <p id="admin-sub">EinfachGesund Krankenkasse – Verwaltungsbereich</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+                    <span class="dash-badge" id="admin-vnr">ADMIN-001</span>
+                    <button class="logout-btn" onclick="logout()">Abmelden</button>
+                </div>
+            </div>
+
+            <!-- STATS ROW -->
+            <div class="dash-grid" style="margin-bottom:1.5rem">
+                <div class="dash-card admin-card">
+                    <h3>👥 <span id="adm-users-title">Registrierte Benutzer</span></h3>
+                    <div id="admin-stats-content">
+                        <div class="cover-row"><span id="adm-total-l">Gesamt Users</span><span id="stat-total" class="badge-ok">–</span></div>
+                        <div class="cover-row"><span id="adm-versichert-l">Versicherte</span><span id="stat-versichert" class="badge-ok">–</span></div>
+                        <div class="cover-row"><span id="adm-admins-l">Admins</span><span id="stat-admins" class="badge-admin">–</span></div>
+                        <div class="cover-row"><span id="adm-regs-l">Registrierungen</span><span id="stat-regs" class="badge-ok">–</span></div>
+                    </div>
+                </div>
+
+                <!-- ADD EVENT -->
+                <div class="admin-form">
+                    <h3>📅 <span id="adm-add-event-title">Neues Event hinzufügen</span></h3>
+                    <div class="fg"><label id="adm-ev-name-l">Event Name</label><input type="text" id="new-event-name" placeholder="z.B. Kids Move Day Winter 2025"></div>
+                    <div class="fg-row">
+                        <div class="fg"><label id="adm-ev-date-l">Datum</label><input type="date" id="new-event-date"></div>
+                        <div class="fg"><label id="adm-ev-time-l">Uhrzeit</label><input type="time" id="new-event-time" value="09:00"></div>
+                    </div>
+                    <div class="fg"><label id="adm-ev-loc-l">Ort</label><input type="text" id="new-event-location" placeholder="z.B. Stadtpark Mitte"></div>
+                    <div class="fg"><label id="adm-ev-max-l">Max. Teilnehmer</label><input type="number" id="new-event-max" placeholder="500" value="500"></div>
+                    <button class="btn-admin" onclick="addEvent()" id="adm-ev-btn">➕ Event hinzufügen</button>
+                    <div id="event-alert" class="al"></div>
+                </div>
+
+                <!-- ADD BENEFIT -->
+                <div class="admin-form">
+                    <h3>💊 <span id="adm-add-benefit-title">Neues Leistung hinzufügen</span></h3>
+                    <div class="fg"><label id="adm-ben-name-l">Leistungsname</label><input type="text" id="new-benefit-name" placeholder="z.B. Brillen für Kinder"></div>
+                    <div class="fg"><label id="adm-ben-pct-l">Deckung (%)</label><input type="number" id="new-benefit-pct" placeholder="80" min="0" max="100"></div>
+                    <div class="fg"><label id="adm-ben-cat-l">Kategorie</label>
+                        <select id="new-benefit-cat">
+                            <option value="covered" id="adm-opt-covered">✅ Gedeckt (zahlt EinfachGesund)</option>
+                            <option value="not-covered" id="adm-opt-not">❌ Nicht gedeckt</option>
+                        </select>
+                    </div>
+                    <button class="btn-admin" onclick="addBenefit()" id="adm-ben-btn">➕ Leistung hinzufügen</button>
+                    <div id="benefit-alert" class="al"></div>
+                </div>
+            </div>
+
+            <!-- EVENTS LIST -->
+            <div class="dash-card admin-card" style="margin-bottom:1.2rem">
+                <h3>📅 <span id="adm-all-events-title">Alle Events</span></h3>
+                <div class="event-list" id="events-list">
+                    <div class="event-item"><span>🏅 Kids Move Day 2025 – 15. Juni 2025 – Stadtpark Mitte</span><span class="badge-ok" id="adm-active-badge">Aktiv</span></div>
+                </div>
+            </div>
+
+            <!-- BENEFITS LIST -->
+            <div class="dash-card admin-card" style="margin-bottom:1.2rem">
+                <h3>💊 <span id="adm-all-benefits-title">Alle Leistungen</span></h3>
+                <div id="admin-benefits-list">
+                    <div class="benefit-item"><span id="adm-b1">Arztbesuche</span><span class="badge-ok">100%</span></div>
+                    <div class="benefit-item"><span id="adm-b2">Krankenhausaufenthalt</span><span class="badge-ok">100%</span></div>
+                    <div class="benefit-item"><span id="adm-b3">Medikamente</span><span class="badge-ok">80%</span></div>
+                    <div class="benefit-item"><span id="adm-b4">Kindervorsorge</span><span class="badge-ok">100%</span></div>
+                    <div class="benefit-item"><span id="adm-b5">Zahnbehandlung</span><span class="badge-ok">70%</span></div>
+                    <div class="benefit-item"><span id="adm-b6">Physiotherapie</span><span class="badge-ok">80%</span></div>
+                </div>
+            </div>
+
+            <!-- ALL USERS TABLE -->
+            <div class="dash-card admin-card" style="margin-bottom:1.5rem">
+                <h3>👥 <span id="adm-all-users-title">Alle registrierten Benutzer</span></h3>
+                <div style="overflow-x:auto">
+                    <table class="users-table" id="users-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th id="th-name">Name</th>
+                            <th id="th-email">E-Mail</th>
+                            <th id="th-vnr">Versicherungsnummer</th>
+                            <th id="th-city">Wohnort</th>
+                            <th id="th-role">Role</th>
+                            <th id="th-status">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody id="users-tbody">
+                        <tr><td colspan="7" style="text-align:center;color:var(--tl);padding:20px" id="adm-loading">Lade Benutzer...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+    <div class="modal">
+        <h3>🔐 Mein Konto</h3>
+
+        <!-- ROLE SELECTOR -->
+        <div class="role-sel">
+            <button class="role-btn active" id="role-user" onclick="selectRole('USER')">👤 User</button>
+            <button class="role-btn admin-btn" id="role-admin" onclick="selectRole('ADMIN')">🔴 Admin</button>
+        </div>
+
+        <div class="modal-tabs">
+            <button class="mtab on" id="mtab-l" onclick="switchModal('login')">Anmelden</button>
+            <button class="mtab off" id="mtab-r" onclick="switchModal('reg')">Registrieren</button>
+        </div>
+        <div id="mf-login">
+            <div class="fg"><label for="login-vnr" id="ml-vnr">Versicherungsnummer</label><input type="text" id="login-vnr" placeholder="EG-XXXXXXXX"></div>
+            <div class="fg"><label for="login-pw" id="ml-pw">Passwort</label><input type="password" id="login-pw" placeholder="••••••••"></div>
+            <div id="login-alert" class="al"></div>
+            <div class="mfoot">
+                <button class="btn-mc" onclick="closeLogin()" id="ml-cancel">Abbrechen</button>
+                <button class="btn-ms" onclick="submitLogin()" id="ml-submit">Anmelden →</button>
+            </div>
+        </div>
+        <div id="mf-reg" style="display:none">
+            <div class="fg-row">
+                <div class="fg"><label for="new-name" id="mr-name">Vollständiger Name</label><input type="text" id="new-name" placeholder="Anna Müller"></div>
+                <div class="fg"><label for="new-email" id="mr-email">E-Mail</label><input type="email" id="new-email" placeholder="email@beispiel.de"></div>
+            </div>
+            <div class="fg-row">
+                <div class="fg"><label for="new-vnr" id="mr-vnr">Versicherungsnummer</label><input type="text" id="new-vnr" placeholder="EG-XXXXXXXX"></div>
+                <div class="fg"><label for="new-pw" id="mr-pw">Passwort</label><input type="password" id="new-pw" placeholder="Passwort wählen"></div>
+            </div>
+            <div class="fg-row">
+                <div class="fg"><label for="new-city" id="mr-city">Wohnort (Stadt)</label><input type="text" id="new-city" placeholder="z.B. Berlin"></div>
+                <div class="fg">
+                    <label for="new-bday" id="mr-bday">Geburtsdatum</label>
+                    <input type="date" id="new-bday" onchange="calcAge()">
+                    <div class="age-hint" id="age-hint"></div>
+                </div>
+            </div>
+            <div id="reg-alert" class="al"></div>
+            <div class="mfoot">
+                <button class="btn-mc" onclick="closeLogin()" id="mr-cancel">Abbrechen</button>
+                <button class="btn-ms" onclick="submitRegister()" id="mr-submit">Konto erstellen →</button>
+            </div>
+        </div>
+        <p style="margin-top:.7rem;font-size:.72rem;color:var(--tl);text-align:center">EinfachGesund · Sicher &amp; geschützt</p>
+    </div>
+</div>
+
+<footer>
+    <strong>EinfachGesund Krankenkasse</strong> · Kids Move Day 2025<br>
+    <span style="font-size:.68rem" id="ft-sub">Ein Projekt für gesunde Familien · In Zusammenarbeit mit der Stadtverwaltung</span>
+</footer>
+
+<script>
+    const API = 'http://localhost:8080/api';
+    let currentUser = null;
+    let currentLang = 'de';
+    let selectedRole = 'USER';
+
+    // In-memory storage for events and benefits added by admin
+    const extraEvents = [];
+    const extraBenefits = [];
+
+    const T = {
+      de:{
+        'nl-home':'Home','nl-event':'🏅 Kids Move Day','nl-ueber':'Über uns','nl-login':'Mein Konto',
+        'h-badge':'🏅 EinfachGesund präsentiert',
+        'h-title':'Kids Move Day –<br><span class="accent">Olympische Spiele</span> der Familiengesundheit',
+        'h-sub':'Bewegung, Spaß und Gesundheit für die ganze Familie',
+        'h-sub2':'Eine kostenlose Outdoor-Veranstaltung für Kinder und Familien.',
+        'h-btn1':'🎯 Zum Event','h-btn2':'Jetzt anmelden →',
+        'c-free':'Eintritt frei · Für alle','c-fam':'Für Familien','c-age':'Kinder & Erwachsene',
+        'c-city':'Mit der Stadt','c-org':'Gemeinsam veranstaltet',
+        'st1':'Aktivitäten','st2':'Erwartete Familien','st3v':'Kostenlos','st3':'Eintritt für alle','st4':'Medaillen & Preise',
+        's1tag':'Über das Event','s1title':'Was ist Kids Move Day?','s1desc':'Ein ganzer Tag voller Sport und Freude.',
+        'a1t':'Hindernisparcours','a1d':'Klettern, Balancieren und Laufspiele.',
+        'a2t':'Gesundheitsstation','a2d':'Kindgerechte Präventionsaktivitäten.',
+        'a3t':'Mini-Workshop','a3d':'Energie & Ernährung.',
+        'a4t':'Digitaler Check','a4d':'Interaktive Gesundheitsmissionen.',
+        'cta-h':'Jetzt Mitglied werden! 💚','cta-p':'Werden Sie Mitglied bei EinfachGesund.',
+        'cta-b1':'🔐 Anmelden / Konto','cta-b2':'Mehr erfahren',
+        'ev-tag':'Kids Move Day 2025','ev-title':'🏅 Olympische Spiele der Familiengesundheit','ev-desc':'Entdecken Sie alle Details.',
+        'tb-akt':'🎯 Aktivitäten','tb-ora':'⏰ Zeitplan','tb-par':'🤝 Partner','tb-cmi':'🏆 Preise','tb-reg':'📋 Anmeldung',
+        'ea1t':'Hindernisparcours','ea1d':'Klettern, Balancieren und Laufen.',
+        'ea2t':'Gesundheitsstation','ea2d':'Präventionsaktivitäten.',
+        'ea3t':'Ernährungs-Workshop','ea3d':'Eltern und Kinder lernen gemeinsam.',
+        'ea4t':'Digitaler Check','ea4d':'Scannen, bewegen, Punkte sammeln.',
+        'ea5t':'Großes Finale','ea5d':'Goldmedaillen und Überraschungen.',
+        'tl1h':'🎉 Offizielle Eröffnung','tl1p':'Begrüßungsworte',
+        'tl2h':'🏅 Runde 1','tl2p':'Kinder 5–8 Jahre',
+        'tl3h':'🧠 Gesundheitsstation','tl3p':'Kostenlose Checks',
+        'tl4h':'🥗 Workshop','tl4p':'30 Familien',
+        'tl5h':'☀️ Mittagspause','tl5p':'Essen und Musik',
+        'tl6h':'🏅 Runde 2','tl6p':'Kinder 9–14 Jahre',
+        'tl7h':'🏆 Finale','tl7p':'Medaillen-Zeremonie',
+        'p1t':'Stadtverwaltung','p1d':'Die Stadt stellt den Raum bereit.',
+        'p2t':'EinfachGesund','p2d':'Organisiert und finanziert das Event.',
+        'p3t':'Gesundheitspartner','p3d':'Ärzte und Experten ehrenamtlich.',
+        'c1t':'Goldmedaille','c1d':'Höchste Leistung.',
+        'c2t':'Silbermedaille','c2d':'Top 3 Familien.',
+        'c3t':'Bronzemedaille','c3d':'Top 10 Familien.',
+        'c4t':'Teilnahmepreis','c4d':'Jede Familie!',
+        'bn-t':'💡 Bonus für Versicherungsnehmer:','bn-d':'Doppelte Bonuspunkte!',
+        'rg-desc':'Das Event ist kostenlos.','rg-l1':'Name','rg-l2':'E-Mail','rg-l3':'Kinder','rg-l4':'Versicherungsnummer (optional)',
+        'rg-btn':'✅ Anmelden',
+        'u-tag':'Über uns','u-title':'EinfachGesund Krankenkasse','u-desc':'Moderner Krankenversicherer.',
+        'u1t':'Mission','u1d':'Prävention zugänglich machen.',
+        'u2t':'Familie','u2d':'Für junge Familien.',
+        'u3t':'Digital','u3d':'App und Portal.',
+        'u4t':'Community','u4d':'Mit Städten zusammen.',
+        'u-ch':'Mitglied werden','u-cp':'Schließen Sie sich Tausenden an.','u-cb':'🔐 Jetzt Mitglied werden',
+        'ck1':'Familienschutz','ck2':'Prioritätszugang','ck3':'Doppelte Punkte','ck4':'Kostenlose App','ck5':'24/7-Service',
+        'ml-vnr':'Versicherungsnummer','ml-pw':'Passwort','ml-cancel':'Abbrechen','ml-submit':'Anmelden →',
+        'mr-name':'Name','mr-email':'E-Mail','mr-vnr':'Versicherungsnummer','mr-pw':'Passwort',
+        'mr-city':'Wohnort','mr-bday':'Geburtsdatum','mr-cancel':'Abbrechen','mr-submit':'Konto erstellen →',
+        'dash-welcome':'Willkommen zurück','dash-sub':'Ihr persönliches Konto','dash-logout':'Abmelden',
+        'dc1-title':'Meine Daten','dc1-name-l':'Name','dc1-email-l':'E-Mail',
+        'dc1-city-l':'Wohnort','dc1-bday-l':'Geburtsdatum','dc1-age-l':'Alter',
+        'dc1-vnr-l':'Versicherungsnummer','dc1-status-l':'Status','dc1-event-l':'Kids Move Day',
+        'dc2-title':'Was zahlt EinfachGesund?',
+        'dc3-title':'Was zahlt EinfachGesund nicht?',
+        'dc3-1':'Kosmetische Behandlungen','dc3-2':'Alternativmedizin',
+        'dc3-3':'Zahnersatz','dc3-4':'Brillen (Erwachsene)','dc3-5':'Reiseimpfungen','dc3-6':'Privatarzt-Mehrkosten',
+        'dc3-1b':'Nicht gedeckt','dc3-2b':'Nicht gedeckt','dc3-3b':'Nicht gedeckt',
+        'dc3-4b':'Nicht gedeckt','dc3-5b':'Nicht gedeckt','dc3-6b':'Nicht gedeckt',
+        'dc4-title':'Ihre exklusiven Vorteile',
+        'dc4-1':'Doppelte Bonuspunkte','dc4-2':'Prioritätszugang','dc4-3':'Gratis App',
+        'dc4-4':'Gesundheits-Check','dc4-5':'Bonusprogramm','dc4-6':'24/7 Telemedizin',
+        'dc5-title':'Ernährungstipps',
+        'tip1':'Täglich 5 Portionen Obst und Gemüse.',
+        'tip2':'Mindestens 1,5–2 Liter Wasser täglich.',
+        'tip3':'Vollkornprodukte statt Weißmehl.',
+        'tip4':'2x pro Woche Fisch (Omega-3).',
+        'tip5':'Zucker reduzieren.',
+        'tip6':'30 Min. Bewegung täglich!',
+        'dash-status':'Versichert ✅',
+        'ft-sub':'Ein Projekt für gesunde Familien',
+        'age-suffix':' Jahre alt',
+        'admin-sub':'Verwaltungsbereich',
+        'adm-users-title':'Registrierte Benutzer',
+        'adm-total-l':'Gesamt Users','adm-versichert-l':'Versicherte','adm-admins-l':'Admins','adm-regs-l':'Registrierungen',
+        'adm-add-event-title':'Neues Event hinzufügen',
+        'adm-ev-name-l':'Event Name','adm-ev-date-l':'Datum','adm-ev-time-l':'Uhrzeit','adm-ev-loc-l':'Ort','adm-ev-max-l':'Max. Teilnehmer',
+        'adm-ev-btn':'➕ Event hinzufügen',
+        'adm-add-benefit-title':'Neue Leistung hinzufügen',
+        'adm-ben-name-l':'Leistungsname','adm-ben-pct-l':'Deckung (%)','adm-ben-cat-l':'Kategorie',
+        'adm-opt-covered':'✅ Gedeckt (zahlt EinfachGesund)','adm-opt-not':'❌ Nicht gedeckt',
+        'adm-ben-btn':'➕ Leistung hinzufügen',
+        'adm-all-events-title':'Alle Events','adm-active-badge':'Aktiv',
+        'adm-all-benefits-title':'Alle Leistungen',
+        'adm-b1':'Arztbesuche','adm-b2':'Krankenhausaufenthalt','adm-b3':'Medikamente',
+        'adm-b4':'Kindervorsorge','adm-b5':'Zahnbehandlung','adm-b6':'Physiotherapie',
+        'adm-all-users-title':'Alle registrierten Benutzer',
+        'adm-loading':'Lade Benutzer...',
+        'th-name':'Name','th-email':'E-Mail','th-vnr':'Versicherungsnummer','th-city':'Wohnort','th-role':'Rolle','th-status':'Status'
+      },
+      en:{
+        'nl-home':'Home','nl-event':'🏅 Kids Move Day','nl-ueber':'About us','nl-login':'My Account',
+        'h-badge':'🏅 EinfachGesund presents',
+        'h-title':'Kids Move Day –<br><span class="accent">Olympic Games</span> of Family Health',
+        'h-sub':'Movement, fun and health for the whole family',
+        'h-sub2':'A free outdoor event for children and families.',
+        'h-btn1':'🎯 Discover Event','h-btn2':'Register Now →',
+        'c-free':'Free entry · For everyone','c-fam':'For Families','c-age':'Children & Adults',
+        'c-city':'City Partnership','c-org':'Co-organized',
+        'st1':'Activities','st2':'Expected Families','st3v':'Free','st3':'Entry for Everyone','st4':'Medals & Prizes',
+        's1tag':'About the Event','s1title':'What is Kids Move Day?','s1desc':'A full day of sport and joy.',
+        'a1t':'Obstacle Course','a1d':'Climbing, balancing and running.',
+        'a2t':'Health Station','a2d':'Preventive health activities.',
+        'a3t':'Mini Workshop','a3d':'Energy & Nutrition.',
+        'a4t':'Digital Check','a4d':'Interactive health missions.',
+        'cta-h':'Become a Member! 💚','cta-p':'Join EinfachGesund today.',
+        'cta-b1':'🔐 Register / Account','cta-b2':'Learn More',
+        'ev-tag':'Kids Move Day 2025','ev-title':'🏅 Olympic Games of Family Health','ev-desc':'Discover all details.',
+        'tb-akt':'🎯 Activities','tb-ora':'⏰ Schedule','tb-par':'🤝 Partners','tb-cmi':'🏆 Prizes','tb-reg':'📋 Registration',
+        'ea1t':'Obstacle Course','ea1d':'Climbing, balancing and running.',
+        'ea2t':'Health Station','ea2d':'Preventive activities.',
+        'ea3t':'Nutrition Workshop','ea3d':'Parents and children learn together.',
+        'ea4t':'Digital Check','ea4d':'Scan, move, earn points.',
+        'ea5t':'Grand Finale','ea5d':'Gold medals and surprises.',
+        'tl1h':'🎉 Official Opening','tl1p':'Welcome words',
+        'tl2h':'🏅 Round 1','tl2p':'Children 5–8 years',
+        'tl3h':'🧠 Health Station','tl3p':'Free check-ups',
+        'tl4h':'🥗 Workshop','tl4p':'30 families',
+        'tl5h':'☀️ Lunch Break','tl5p':'Food and music',
+        'tl6h':'🏅 Round 2','tl6p':'Children 9–14 years',
+        'tl7h':'🏆 Finale','tl7p':'Medal ceremony',
+        'p1t':'Municipality','p1d':'The city provides the space.',
+        'p2t':'EinfachGesund','p2d':'Organizes and finances the event.',
+        'p3t':'Health Partners','p3d':'Doctors and experts voluntarily.',
+        'c1t':'Gold Medal','c1d':'Highest performance.',
+        'c2t':'Silver Medal','c2d':'Top 3 families.',
+        'c3t':'Bronze Medal','c3d':'Top 10 families.',
+        'c4t':'Participation Prize','c4d':'Every family!',
+        'bn-t':'💡 Bonus for Policyholders:','bn-d':'Double bonus points!',
+        'rg-desc':'The event is free.','rg-l1':'Name','rg-l2':'Email','rg-l3':'Children','rg-l4':'Insurance Number (optional)',
+        'rg-btn':'✅ Register',
+        'u-tag':'About us','u-title':'EinfachGesund Health Insurance','u-desc':'Modern health insurance.',
+        'u1t':'Mission','u1d':'Making prevention accessible.',
+        'u2t':'Family','u2d':'For young families.',
+        'u3t':'Digital','u3d':'App and portal.',
+        'u4t':'Community','u4d':'Collaboration with cities.',
+        'u-ch':'Become a Member','u-cp':'Join thousands of families.','u-cb':'🔐 Become a Member',
+        'ck1':'Family Coverage','ck2':'Priority Access','ck3':'Double Points','ck4':'Free App','ck5':'24/7 Service',
+        'ml-vnr':'Insurance Number','ml-pw':'Password','ml-cancel':'Cancel','ml-submit':'Login →',
+        'mr-name':'Full Name','mr-email':'Email','mr-vnr':'Insurance Number','mr-pw':'Password',
+        'mr-city':'City','mr-bday':'Date of Birth','mr-cancel':'Cancel','mr-submit':'Create Account →',
+        'dash-welcome':'Welcome back','dash-sub':'Your personal account','dash-logout':'Log out',
+        'dc1-title':'My Data','dc1-name-l':'Name','dc1-email-l':'Email',
+        'dc1-city-l':'City','dc1-bday-l':'Date of Birth','dc1-age-l':'Age',
+        'dc1-vnr-l':'Insurance Number','dc1-status-l':'Status','dc1-event-l':'Kids Move Day',
+        'dc2-title':'What does EinfachGesund cover?',
+        'dc3-title':'What is NOT covered?',
+        'dc3-1':'Cosmetic treatments','dc3-2':'Alternative medicine',
+        'dc3-3':'Dental implants','dc3-4':'Glasses (adults)','dc3-5':'Travel vaccinations','dc3-6':'Private doctor surcharges',
+        'dc3-1b':'Not covered','dc3-2b':'Not covered','dc3-3b':'Not covered',
+        'dc3-4b':'Not covered','dc3-5b':'Not covered','dc3-6b':'Not covered',
+        'dc4-title':'Your exclusive benefits',
+        'dc4-1':'Double bonus points','dc4-2':'Priority access','dc4-3':'Free health app',
+        'dc4-4':'Annual health check','dc4-5':'Bonus program','dc4-6':'24/7 Telemedicine',
+        'dc5-title':'Nutrition Tips',
+        'tip1':'Eat 5 portions of fruits and vegetables daily.',
+        'tip2':'Drink at least 1.5–2 liters of water daily.',
+        'tip3':'Choose whole grain products.',
+        'tip4':'Eat fish twice a week (Omega-3).',
+        'tip5':'Reduce sugar.',
+        'tip6':'30 minutes of exercise daily!',
+        'dash-status':'Insured ✅',
+        'ft-sub':'A project for healthy families',
+        'age-suffix':' years old',
+        'admin-sub':'Administration Area',
+        'adm-users-title':'Registered Users',
+        'adm-total-l':'Total Users','adm-versichert-l':'Insured','adm-admins-l':'Admins','adm-regs-l':'Registrations',
+        'adm-add-event-title':'Add New Event',
+        'adm-ev-name-l':'Event Name','adm-ev-date-l':'Date','adm-ev-time-l':'Time','adm-ev-loc-l':'Location','adm-ev-max-l':'Max. Participants',
+        'adm-ev-btn':'➕ Add Event',
+        'adm-add-benefit-title':'Add New Benefit',
+        'adm-ben-name-l':'Benefit Name','adm-ben-pct-l':'Coverage (%)','adm-ben-cat-l':'Category',
+        'adm-opt-covered':'✅ Covered (EinfachGesund pays)','adm-opt-not':'❌ Not covered',
+        'adm-ben-btn':'➕ Add Benefit',
+        'adm-all-events-title':'All Events','adm-active-badge':'Active',
+        'adm-all-benefits-title':'All Benefits',
+        'adm-b1':'Doctor visits','adm-b2':'Hospital stays','adm-b3':'Medications',
+        'adm-b4':'Child check-ups','adm-b5':'Dental treatment','adm-b6':'Physiotherapy',
+        'adm-all-users-title':'All Registered Users',
+        'adm-loading':'Loading users...',
+        'th-name':'Name','th-email':'Email','th-vnr':'Insurance Number','th-city':'City','th-role':'Role','th-status':'Status'
+      }
+    };
+
+    function selectRole(role) {
+      selectedRole = role;
+      document.getElementById('role-user').classList.toggle('active', role === 'USER');
+      document.getElementById('role-admin').classList.toggle('active', role === 'ADMIN');
+      const loginBtn = document.getElementById('ml-submit');
+      if (role === 'ADMIN') {
+        loginBtn.style.background = '#e74c3c';
+        document.getElementById('login-vnr').placeholder = 'ADMIN-001';
+      } else {
+        loginBtn.style.background = '';
+        document.getElementById('login-vnr').placeholder = 'EG-XXXXXXXX';
+      }
+    }
+
+    function calcAge() {
+      const bday = document.getElementById('new-bday').value;
+      const hint = document.getElementById('age-hint');
+      if (!bday) { hint.style.display='none'; return; }
+      const age = computeAge(bday);
+      hint.textContent = '🎂 ' + age + (T[currentLang]['age-suffix'] || ' Jahre alt');
+      hint.style.display = 'block';
+    }
+
+    function computeAge(bdayStr) {
+      const today = new Date(), bday = new Date(bdayStr);
+      let age = today.getFullYear() - bday.getFullYear();
+      const m = today.getMonth() - bday.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < bday.getDate())) age--;
+      return age;
+    }
+
+    function setLang(lang, btn) {
+      currentLang = lang;
+      document.querySelectorAll('.lbtn').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      Object.keys(T[lang]).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = T[lang][id];
+      });
+      if (currentUser) {
+        updateDashboard(currentUser);
+        updateAdminTranslations();
+      }
+      calcAge();
+    }
+
+    function showPage(name, el) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      document.querySelectorAll('.nav-right a').forEach(a => a.classList.remove('active'));
+      if (el) el.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function switchModal(tab) {
+      const isL = tab === 'login';
+      document.getElementById('mf-login').style.display = isL ? 'block' : 'none';
+      document.getElementById('mf-reg').style.display   = isL ? 'none'  : 'block';
+      document.getElementById('mtab-l').className = 'mtab ' + (isL ? 'on' : 'off');
+      document.getElementById('mtab-r').className = 'mtab ' + (isL ? 'off' : 'on');
+      document.getElementById('login-alert').className = 'al';
+      document.getElementById('reg-alert').className   = 'al';
+    }
+
+    function openLogin() {
+      switchModal('login');
+      selectRole('USER');
+      document.getElementById('loginModal').classList.add('open');
+    }
+    function closeLogin() { document.getElementById('loginModal').classList.remove('open'); }
+    document.getElementById('loginModal').addEventListener('click', function(e) {
+      if (e.target === this) closeLogin();
+    });
+
+    function updateDashboard(user) {
+      const isDE = currentLang === 'de';
+      const sfx = T[currentLang]['age-suffix'] || ' Jahre alt';
+      document.getElementById('dash-welcome').textContent = (isDE ? 'Willkommen zurück, ' : 'Welcome back, ') + user.name + '!';
+      document.getElementById('dash-sub').textContent     = isDE ? 'Ihr persönliches EinfachGesund-Konto' : 'Your personal EinfachGesund account';
+      document.getElementById('dash-logout').textContent  = isDE ? 'Abmelden' : 'Log out';
+      document.getElementById('dash-vnr').textContent     = user.versicherungsnummer || '–';
+      document.getElementById('dash-name').textContent    = user.name || '–';
+      document.getElementById('dash-email').textContent   = user.email || '–';
+      document.getElementById('dash-city').textContent    = user.stadt || '–';
+      document.getElementById('dash-bday').textContent    = user.geburtsdatum || '–';
+      document.getElementById('dash-vnr2').textContent    = user.versicherungsnummer || '–';
+      document.getElementById('nl-login').textContent     = user.name;
+      document.getElementById('dash-age').textContent     = user.geburtsdatum ? computeAge(user.geburtsdatum) + sfx : '–';
+      document.getElementById('dash-status').textContent  = isDE ? 'Versichert ✅' : 'Insured ✅';
+    }
+
+    async function loadAdminData() {
+      try {
+        const res = await fetch(API + '/users');
+        const users = await res.json();
+        const tbody = document.getElementById('users-tbody');
+        tbody.innerHTML = '';
+        let admins = 0, versichert = 0;
+        users.forEach(u => {
+          if (u.role === 'ADMIN') admins++;
+          if (u.istVersichert) versichert++;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${u.id}</td>
+            <td><strong>${u.name}</strong></td>
+            <td>${u.email}</td>
+            <td>${u.versicherungsnummer}</td>
+            <td>${u.stadt || '–'}</td>
+            <td><span class="${u.role === 'ADMIN' ? 'badge-admin' : 'badge-user'}">${u.role || 'USER'}</span></td>
+            <td><span class="badge-ok">${u.istVersichert ? '✅ Aktiv' : '❌ Inaktiv'}</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+        document.getElementById('stat-total').textContent = users.length;
+        document.getElementById('stat-versichert').textContent = versichert;
+        document.getElementById('stat-admins').textContent = admins;
+
+        const resReg = await fetch(API + '/registrations/stats');
+        const stats = await resReg.json();
+        document.getElementById('stat-regs').textContent = stats.totalRegistrations || 0;
+      } catch(e) {
+        document.getElementById('users-tbody').innerHTML =
+          '<tr><td colspan="7" style="text-align:center;color:red">Fehler beim Laden</td></tr>';
+      }
+    }
+
+    // Load saved events and benefits from localStorage
+    function loadStoredData() {
+      // Load events
+      const savedEvents = JSON.parse(localStorage.getItem('eg_events') || '[]');
+      const list = document.getElementById('events-list');
+      savedEvents.forEach(ev => {
+        const div = document.createElement('div');
+        div.className = 'event-item';
+        div.innerHTML = `<span>${ev}</span><span class="badge-ok">Aktiv ✅</span>`;
+        list.appendChild(div);
+      });
+
+      // Load benefits — both to admin list and user dashboard
+      const savedBenefits = JSON.parse(localStorage.getItem('eg_benefits') || '[]');
+      savedBenefits.forEach(b => {
+        const isCovered = b.cat === 'covered';
+        const badgeClass = isCovered ? 'badge-ok' : 'badge-no';
+        const badgeText  = isCovered ? (b.pct ? b.pct + '%' : '✅') : 'Nicht gedeckt';
+
+        // Admin list
+        const adminList = document.getElementById('admin-benefits-list');
+        const adminDiv = document.createElement('div');
+        adminDiv.className = 'benefit-item';
+        adminDiv.innerHTML = `<span>${b.name}</span><span class="${badgeClass}">${badgeText}</span>`;
+        adminList.appendChild(adminDiv);
+
+        // User dashboard
+        if (isCovered) {
+          const userList = document.getElementById('benefits-list');
+          const userDiv = document.createElement('div');
+          userDiv.className = 'cover-row';
+          userDiv.innerHTML = `<span>${b.name}</span><span class="badge-ok">${b.pct ? b.pct + '%' : '✅'}</span>`;
+          userList.appendChild(userDiv);
+        }
+      });
+    }
+
+    function addEvent() {
+      const name = document.getElementById('new-event-name').value.trim();
+      const date = document.getElementById('new-event-date').value;
+      const time = document.getElementById('new-event-time').value;
+      const loc  = document.getElementById('new-event-location').value.trim();
+      const max  = document.getElementById('new-event-max').value;
+      const al   = document.getElementById('event-alert');
+      al.className = 'al';
+      const isDE = currentLang === 'de';
+      if (!name || !date || !loc) {
+        al.className = 'al er';
+        al.textContent = isDE ? '❌ Bitte Name, Datum und Ort ausfüllen.' : '❌ Please fill name, date and location.';
+        return;
+      }
+      const eventStr = `🏅 ${name} – ${date} ${time} – ${loc} (Max: ${max})`;
+
+      // Save to localStorage
+      const saved = JSON.parse(localStorage.getItem('eg_events') || '[]');
+      saved.push(eventStr);
+      localStorage.setItem('eg_events', JSON.stringify(saved));
+
+      // Show in admin list
+      const list = document.getElementById('events-list');
+      const div = document.createElement('div');
+      div.className = 'event-item';
+      div.innerHTML = `<span>${eventStr}</span><span class="badge-ok">${isDE ? 'Neu ✅' : 'New ✅'}</span>`;
+      list.appendChild(div);
+
+      al.className = 'al ok';
+      al.textContent = isDE ? '✅ Event erfolgreich hinzugefügt!' : '✅ Event added successfully!';
+      document.getElementById('new-event-name').value = '';
+      document.getElementById('new-event-date').value = '';
+      document.getElementById('new-event-location').value = '';
+    }
+
+    function addBenefit() {
+      const name = document.getElementById('new-benefit-name').value.trim();
+      const pct  = document.getElementById('new-benefit-pct').value;
+      const cat  = document.getElementById('new-benefit-cat').value;
+      const al   = document.getElementById('benefit-alert');
+      al.className = 'al';
+      const isDE = currentLang === 'de';
+      if (!name) {
+        al.className = 'al er';
+        al.textContent = isDE ? '❌ Bitte Leistungsname eingeben.' : '❌ Please enter benefit name.';
+        return;
+      }
+
+      const isCovered  = cat === 'covered';
+      const badgeClass = isCovered ? 'badge-ok' : 'badge-no';
+      const badgeText  = isCovered ? (pct ? pct + '%' : '✅') : (isDE ? 'Nicht gedeckt' : 'Not covered');
+
+      // Save to localStorage
+      const saved = JSON.parse(localStorage.getItem('eg_benefits') || '[]');
+      saved.push({name, pct, cat});
+      localStorage.setItem('eg_benefits', JSON.stringify(saved));
+
+      // Add to admin benefits list
+      const adminList = document.getElementById('admin-benefits-list');
+      const div = document.createElement('div');
+      div.className = 'benefit-item';
+      div.innerHTML = `<span>${name}</span><span class="${badgeClass}">${badgeText}</span>`;
+      adminList.appendChild(div);
+
+      // Add to user dashboard if covered
+      if (isCovered) {
+        const userList = document.getElementById('benefits-list');
+        const userDiv = document.createElement('div');
+        userDiv.className = 'cover-row';
+        userDiv.innerHTML = `<span>${name}</span><span class="badge-ok">${pct ? pct + '%' : '✅'}</span>`;
+        userList.appendChild(userDiv);
+      }
+
+      al.className = 'al ok';
+      al.textContent = isDE ? '✅ Leistung erfolgreich hinzugefügt!' : '✅ Benefit added successfully!';
+      document.getElementById('new-benefit-name').value = '';
+      document.getElementById('new-benefit-pct').value  = '';
+    }
+
+    function updateAdminTranslations() {
+      const isDE = currentLang === 'de';
+      // Alert messages
+      const eventAl = document.getElementById('event-alert');
+      const benefitAl = document.getElementById('benefit-alert');
+      if (eventAl && eventAl.classList.contains('ok')) eventAl.textContent = isDE ? '✅ Event erfolgreich hinzugefügt!' : '✅ Event added successfully!';
+      if (benefitAl && benefitAl.classList.contains('ok')) benefitAl.textContent = isDE ? '✅ Leistung erfolgreich hinzugefügt!' : '✅ Benefit added successfully!';
+      // Table loading text
+      const tbody = document.getElementById('users-tbody');
+      if (tbody && tbody.children.length === 1 && tbody.children[0].children.length === 1) {
+        const loadTd = tbody.querySelector('td');
+        if (loadTd && !loadTd.id) loadTd.textContent = isDE ? 'Lade Benutzer...' : 'Loading users...';
+      }
+    }
+
+    function logout() {
+      currentUser = null;
+      selectedRole = 'USER';
+      document.getElementById('nl-login').textContent = currentLang === 'de' ? 'Mein Konto' : 'My Account';
+      showPage('home', document.getElementById('nl-home'));
+    }
+
+    async function submitLogin() {
+      const vnr = document.getElementById('login-vnr').value.trim();
+      const pw  = document.getElementById('login-pw').value.trim();
+      const al  = document.getElementById('login-alert');
+      al.className = 'al';
+      if (!vnr || !pw) { al.className='al er'; al.textContent='Bitte alle Felder ausfüllen.'; return; }
+      try {
+        const res  = await fetch(API + '/users/login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({versicherungsnummer: vnr, passwort: pw})
+        });
+        const data = await res.json();
+        if (res.ok) {
+          currentUser = {name: data.name, versicherungsnummer: vnr, email: data.email || '–', stadt: data.stadt || '–', geburtsdatum: data.geburtsdatum || '', role: data.role || selectedRole};
+          al.className = 'al ok';
+          al.textContent = '✅ ' + (currentLang === 'de' ? 'Willkommen, ' : 'Welcome, ') + data.name + '!';
+
+          // Check if ADMIN
+          const isAdmin = (data.role === 'ADMIN' || selectedRole === 'ADMIN');
+          setTimeout(() => {
+            closeLogin();
+            if (isAdmin) {
+              document.getElementById('nl-login').textContent = '🔴 ' + data.name;
+              document.getElementById('admin-vnr').textContent = vnr;
+              showPage('admin', null);
+              loadAdminData();
+            } else {
+              updateDashboard(currentUser);
+              showPage('dashboard', null);
+              document.getElementById('nl-login').textContent = data.name;
+            }
+          }, 1200);
+        } else {
+          al.className = 'al er';
+          al.textContent = '❌ ' + (data.error || 'Login fehlgeschlagen.');
+        }
+      } catch(e) { al.className = 'al er'; al.textContent = '❌ Server nicht erreichbar.'; }
+    }
+
+    async function submitRegister() {
+      const name  = document.getElementById('new-name').value.trim();
+      const email = document.getElementById('new-email').value.trim();
+      const vnr   = document.getElementById('new-vnr').value.trim();
+      const pw    = document.getElementById('new-pw').value.trim();
+      const city  = document.getElementById('new-city').value.trim();
+      const bday  = document.getElementById('new-bday').value;
+      const al    = document.getElementById('reg-alert');
+      al.className = 'al';
+      if (!name || !email || !vnr || !pw) {
+        al.className = 'al er';
+        al.textContent = '❌ ' + (currentLang === 'de' ? 'Bitte alle Pflichtfelder ausfüllen.' : 'Please fill all required fields.');
+        return;
+      }
+      try {
+        const res = await fetch(API + '/users', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({name, email, versicherungsnummer: vnr, passwort: pw, istVersichert: true, stadt: city || null, geburtsdatum: bday || null, role: 'USER'})
+        });
+        const data = await res.json();
+        if (res.ok || res.status === 201) {
+          al.className = 'al ok';
+          al.textContent = '✅ ' + (currentLang === 'de' ? 'Konto erstellt! Willkommen, ' : 'Account created! Welcome, ') + data.name + '!';
+          currentUser = {name: data.name, versicherungsnummer: vnr, email, stadt: city || '–', geburtsdatum: bday || '', role: 'USER'};
+          setTimeout(() => { closeLogin(); updateDashboard(currentUser); showPage('dashboard', null); document.getElementById('nl-login').textContent = data.name; }, 1500);
+        } else {
+          al.className = 'al er';
+          al.textContent = '❌ ' + (data.message || 'Registrierung fehlgeschlagen.');
+        }
+      } catch(e) { al.className = 'al er'; al.textContent = '❌ Server nicht erreichbar.'; }
+    }
+
+    async function submitRegistration() {
+      const name   = document.getElementById('reg-name').value.trim();
+      const email  = document.getElementById('reg-email').value.trim();
+      const kinder = document.getElementById('reg-kinder').value;
+      const al     = document.getElementById('event-reg-alert');
+      al.className = 'al';
+      if (!name || !email || !kinder) { al.className='al er'; al.textContent='Bitte alle Felder ausfüllen.'; return; }
+      try {
+        const res = await fetch(API + '/registrations/guest', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({gastName: name, gastEmail: email, kinderAnzahl: parseInt(kinder)})
+        });
+        const data = await res.json();
+        if (res.ok || res.status === 201) {
+          al.className = 'al ok'; al.textContent = '✅ Anmeldung erfolgreich!';
+          ['reg-name','reg-email','reg-kinder','reg-vnr'].forEach(id => document.getElementById(id).value = '');
+        } else { al.className='al er'; al.textContent='❌ '+(data.message||'Fehler.'); }
+      } catch(e) { al.className='al er'; al.textContent='❌ Server nicht erreichbar.'; }
+    }
+    // Load saved events and benefits on page start
+    loadStoredData();
+</script>
+</body>
+</html>
